@@ -10,6 +10,7 @@ Description:
 '''
 
 # Library imports
+import argparse
 import numpy as np
 import pandas as pd
 
@@ -218,13 +219,20 @@ class TextKnowledgeGraph:
         self.plot_graph(dir_graph)
 
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--data_path", type=str, default = "data/wikipedia_sentences.csv", help="Path to the data csv file")
+    parser.add_argument("--relationship", type=str, default = None, help="A relationship between entities to be observed. If left empty, the tool will show EVERYTHING!")
+    args = parser.parse_args()
+
     # Load data
-    data = Dataset("data/wiki_sentences_v2.csv")
+    data = Dataset(args.data_path)
     # Create an object for the knowledge graph
     kg = TextKnowledgeGraph(data()) # data() is same as data.df
 
     # Visualize based on the relationships
-    kg.get_by_relationship("written by")
-    kg.get_by_relationship("directed by")
-    kg.get_by_relationship("includes")
-    kg.get_by_relationship("composed by")
+    # kg.get_by_relationship("written by")
+    # kg.get_by_relationship("directed by")
+    # kg.get_by_relationship("includes")
+    # kg.get_by_relationship("composed by")
+
+    kg.get_by_relationship(args.relationship)
