@@ -6,11 +6,11 @@ A tool that creates and visualizes a knowledge from textual data using Natural L
 
 1. Install the required dependencies from requirements.txt
     ```python
-        pip3 install -r requirements.txt
+    pip3 install -r requirements.txt
     ```
 2. Change data loading as required or you could use the inbuilt method to import csv files
 
 3. Run the tool by running the script with the data path and relationship as follows:
     ```bash
-        python3 text_knowledge_graph.py --data_path data/wikipedia_sentences.csv --relationship includes
+    python3 text_knowledge_graph.py --data_path data/wikipedia_sentences.csv --relationship includes
     ```
